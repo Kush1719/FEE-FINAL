@@ -40,11 +40,11 @@ export const ProductDisplay = (props) => {
             <div className="productdisplay-right-size">
                 <h1>Select Size</h1>
                 <div className="productdisplay-right-sizes">
-                    <div>S</div>
-                    <div>M</div>
-                    <div>L</div>
-                    <div>XL</div>
-                    <div>XXL</div>
+                    <div className='size-tag'>S</div>
+                    <div className='size-tag'>M</div>
+                    <div className='size-tag'>L</div>
+                    <div className='size-tag'>XL</div>
+                    <div className='size-tag'>XXL</div>
                 </div>
             </div>
             <button onClick={()=>{addToCart(product.id)}}>ADD TO CART</button>

@@ -8,13 +8,15 @@ import { ShopContext } from '../../Context/ShopContext';
 export const Navbar = () => {
     const [menu, setMenu] = useState("shop");
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [initial, setinitial] = useState("");
     const { getTotalCartItems } = useContext(ShopContext);
     const location = useLocation();
 
     useEffect(() => {
         const loggedInStatus = localStorage.getItem('isLoggedIn');
         if (loggedInStatus) {
-            setIsLoggedIn(JSON.parse(loggedInStatus));
+          setIsLoggedIn(JSON.parse(loggedInStatus));
+          setinitial(localStorage.getItem('initial'));
         }
     }, []);
 
@@ -40,7 +42,7 @@ export const Navbar = () => {
             <div className="nav-login-cart">
                 { location.pathname !== '/login' &&
                 (isLoggedIn ? (
-                    <Link to='/'><button onClick={handleloginlogout}>Logout</button></Link>
+                    <Link to='/'><button style={{"padding":"0px"}} onClick={handleloginlogout}><p style={{"fontSize":"46px"}}>{initial}</p></button></Link>
                 ) : (
                     <Link to='/login'><button onClick={handleloginlogout}>Sign Up</button></Link>
                 ))
